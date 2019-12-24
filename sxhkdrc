@@ -1,0 +1,195 @@
+!#/usr/bin/env sh
+
+#Restart bspwm
+#  . $HOME/.config/bspwm/bspwmrc
+super + shift + ctrl + r
+  bspc wm -r
+
+#Reload config
+super + shift + r
+  pkill -USR1 -x sxhkd
+
+super + Escape
+  pkill -USR1 -x sxhkd
+
+#Thinkpads
+#Quit bspwm
+super + XF86Launch1
+  ~/bin/prompt "Are you sure you want to quit this Xsession?" "bspc quit"
+#Reboot/Shutdown
+super + alt + XF86Launch1
+	~/bin/prompt "Reboot computer?" "sudo -A reboot"
+super + shift + XF86Launch1
+  ~/bin/prompt "Shutdown computer?" "sudo -A shutdown -h now"
+
+#Whatever Fallback
+#Supend/restart/shutdown/ the computer
+ctrl + alt + Delete
+  ~/bin/system-ops
+
+#Launch common apps
+
+#Toggles Polybar visibility
+super + p
+  polybar-msg cmd toggle
+
+#Toggles Compton
+super + c
+  ~/bin/compton-toggle
+
+#FIX
+#vkpurge
+#super + p
+#  kitty -e vkpurge
+
+#github.com/addy-dclxvi/void-bspwm-dotfiles
+super + {f,h,k,l,n,b,v}
+  {firefox,kitty -e htop,kitty,kitty -e lf,nautilus,kitty -e newsboat,kitty -e nvim}
+
+#Edit configs
+#bspwm
+super + ctrl + c
+  kitty -e nvim ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc_bspc
+
+super + Return
+  kitty
+
+super + m
+  dmenu_run
+
+#Rofi
+super + d
+  rofi -show run -matching fuzzy -lines 6 -click-to-exit -hide-scrollbar
+
+#super + s
+#      scrot
+
+#super + shift + s
+#      scrot -s
+
+XF86AudioRaiseVolume
+  amixer set Master 10%+
+
+XF86AudioLowerVolume
+  amixer set Master 10%-
+
+XF86AudioMute
+  #amixer -D pulse set Master 1+ toggle
+  amixer set Master 1+ toggle
+
+XF86AudioMicMute
+  amixer set Capture 1+ toggle
+
+XF86MonBrightnessUp
+  xbacklight -inc 10
+
+XF86MonBrightnessDown
+  xbacklight -dec 10
+
+XF86AudioPlay
+    mpc toggle
+
+XF86AudioPrev
+    mpc prev
+
+XF86AudioNext
+    mpc next
+
+ctrl + alt + l
+     slock
+
+super + e
+    emacsclient -nc
+
+
+
+
+
+
+#Suddenly, _bspc stopped to work :thinking:
+
+#Desktop/workspaces
+#Focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+  bspc {desktop -f,node -d} '^{1-9,10}'
+
+#Focus the next/previous node in the current desktop
+alt + {_,shift + }Tab
+  bspc node -f {next,prev}.local
+#Swap window position
+super + {_,shift + }{Left,Down,Up,Right}
+  bspc node -{f,s} {west,south,north,east}
+
+#Tiled/monocle
+alt + m
+  bspc desktop -l next
+
+#Nodes
+#Window state
+#Close and kill node
+super + {_, shift + }q
+  bspc node -{c,k}
+
+#super + {t,shift  t,s,f}
+alt + shift + {t,p,f,s}
+  bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
+
+#Set node flags
+alt + shift + {m,x,y,z}
+  bspc node -g {marked, locked, sticky, private}
+
+#github.com/addy-dclxvi/void-bspwm-dotfiles
+#super + space
+#  bspc node -t "~"{floating,tiled}
+
+super + space
+  bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
+
+#Move floating window
+alt + ctrl + {Left,Down,Up,Right}
+  bspc node -v {-20 0, 0 20, 0 -20, 20 0}
+
+# Move floating window
+super + alt + {_,shift + }{Left,Down,Up,Right}
+	~/.config/bspwm/scripts/move-window {_,edge-}{west,south,north,east}
+
+#super + {t,shift  t,s,f}
+#Split horizontal, vertical or cancel
+super + shift + {h,j,k,l,c,Escape}
+  bspc node -p {west,south,north,east,cancel,cancel}
+
+#Resize floating window
+#Grow a window by moving one of its sides outward
+alt + {h,j,k,l}
+  bspc node -z {left -10 0, bottom 0 20, top 0 -20, right 20 0}
+alt + r
+  bspc node -z {left -10 0, bottom 0 20, top 0 -20, right 20 0}
+
+#Shrink floating window
+alt + shift + {h,j,k,l}
+  bspc node -z {left +10 0, bottom 0 -20, top 0 20, right -20 0}
+alt + shift + r
+  bspc node -z {left +10 0, bottom 0 -20, top 0 20, right -20 0}
+
+#Increase/decrease window gap on focused desktop
+super + bracket{left,right}
+  bspc config -d focused window_gap $(( `bspc config -d focused window_gap` {-,+} 5 ))
+
+#Switch current node with prev/next node
+#alt + shift + {Right,Left}
+#  bspc node -s {next,prev}.local
+
+#Flips layout
+super + {_,shift + }a
+  bspc node @/ --flip {vertical,horizontal}
+
+#Monitors
+#Move focus to next monitor
+super + BackSpace
+  bspc monitor -f next
+
+#Move focused window to next monitor
+super + shift + BackSpace
+  bspc node -m next --follow
+
+
