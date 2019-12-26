@@ -66,7 +66,7 @@ super + m
 
 #Rofi
 super + d
-  rofi -show run -matching fuzzy -lines 6 -click-to-exit -hide-scrollbar
+  rofi -show run -matching fuzzy -lines 6 -click-to-exit -hide-scrollbar -font "Source Code Pro 20"
 
 #super + s
 #      scrot
