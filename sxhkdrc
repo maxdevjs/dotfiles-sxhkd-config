@@ -120,6 +120,9 @@ super + e
 super + {_,shift + }{1-9,0}
   bspc {desktop -f,node -d} '^{1-9,10}'
 
+{super} + Tab
+  bspc {desktop} -f last
+
 #Focus the next/previous node in the current desktop
 alt + {_,shift + }Tab
   bspc node -f {next,prev}.local
