@@ -51,6 +51,13 @@ super + {f,h,k,l,n,b,v}
 super + ctrl + c
   kitty -e nvim ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc_bspc
 
+super + x : {b,p,s}
+  { \
+    `kitty -e nvim ~/.config/bspwm/bspwmrc`, \
+    `kitty -e nvim ~/.config/polybar/config`, \
+    `kitty -e nvim ~/.config/sxhkd/sxhkdrc`, \
+  }
+
 super + Return
   kitty
 
@@ -177,7 +184,7 @@ super + bracket{left,right}
 
 #Switch current node with prev/next node
 #alt + shift + {Right,Left}
-#  bspc node -s {next,prev}.local
+#  bspc node -s {next,local}.prev
 
 #Flips layout
 super + {_,shift + }a
