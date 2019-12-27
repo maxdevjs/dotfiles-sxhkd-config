@@ -64,10 +64,15 @@ super + Return
 super + m
   dmenu_run
 
-#Rofi
-super + d
-  rofi -show run -matching fuzzy -lines 6 -click-to-exit -hide-scrollbar -font "Source Code Pro 20"
+###################################
+#               rofi              #
+###################################
 
+  #rofi -show run -matching fuzzy -lines 6 -click-to-exit -hide-scrollbar -font "Source Code Pro 20"
+super + d
+  rofi -show drun -p "λ run: " -fullscreen -sidebar-mode -matching fuzzy
+super + w
+  rofi -show window -p "λ run: " -fullscreen -sidebar-mode -matching fuzzy
 #super + s
 #      scrot
 
