@@ -135,6 +135,10 @@ alt + {_,shift + }Tab
 super + {_,shift + }{Left,Down,Up,Right}
   bspc node -{f,s} {west,south,north,east}
 
+#Swap current node with biggest one
+super + alt + n
+  bspc node -s biggest
+
 #Tiled/monocle
 alt + m
   bspc desktop -l next
