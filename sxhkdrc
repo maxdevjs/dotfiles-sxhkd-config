@@ -202,6 +202,10 @@ super + bracket{left,right}
 super + {_,shift + }a
   bspc node @/ --flip {vertical,horizontal}
 
+#Rotate desktop
+alt + {_,shift + } space
+  bspc node @/ --rotate {90,-90}
+
 #Monitors
 #Move focus to next monitor
 super + BackSpace
