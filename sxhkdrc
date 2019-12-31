@@ -25,7 +25,7 @@ super + shift + XF86Launch1
 #Whatever Fallback
 #Supend/restart/shutdown/ the computer
 ctrl + alt + Delete
-  ~/bin/system-ops
+  ~/bin/system-power-ops
 
 #Launch common apps
 
