@@ -181,10 +181,27 @@ super + {_,shift + }{1-9,0}
 super + Tab
   bspc {desktop} -f last
 
+#Window state
+#Close and kill node
+#super + {_, shift + }q
+  #bspc node -{c,k}
+super + {_, shift + }q
+  xdo close
+
+# Switch states
+super + {t,p,f,s}
+  bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
+
+#github.com/addy-dclxvi/void-bspwm-dotfiles
+# Flip states
+super + space
+  bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
+
 #Focus the next/previous node in the current desktop
 alt + {_,shift + }Tab
   bspc node -f {next,prev}.local
-#Swap window position
+
+#Select / swap current node with prev/next node
 super + {_,shift + }{Left,Down,Up,Right}
   bspc node -{f,s} {west,south,north,east}
 
@@ -196,22 +213,6 @@ super + alt + n
 alt + m
   bspc desktop -l next
 
-#Nodes
-#Window state
-#Close and kill node
-#super + {_, shift + }q
-  #bspc node -{c,k}
-super + {_, shift + }q
-  xdo close
-
-# Flip states
-super + {t,p,f,s}
-  bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
-
-#github.com/addy-dclxvi/void-bspwm-dotfiles
-super + space
-  bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
-
 #Set node flags
 alt + shift + {m,x,y,z}
   bspc node -g {marked, locked, sticky, private}
@@ -222,7 +223,6 @@ alt + shift + {m,x,y,z}
 # Move floating window
 super + alt + {_,shift + }{Left,Down,Up,Right}
   ~/.config/bspwm/scripts/move-window {_,edge-}{west,south,north,east}
-
 
 #Resize floating window
 #Grow a window by moving one of its sides outward
@@ -240,10 +240,6 @@ super + alt + {h,j,k,l,c,Escape}
 #Increase/decrease window gap on focused desktop
 super + bracket{left,right}
   bspc config -d focused window_gap $(( `bspc config -d focused window_gap` {-,+} 5 ))
-
-#Switch current node with prev/next node
-#alt + shift + {Right,Left}
-#  bspc node -s {next,local}.prev
 
 #Flips layout
 super + {_,shift + }a
