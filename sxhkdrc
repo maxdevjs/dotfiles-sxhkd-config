@@ -6,7 +6,7 @@
 #                           #
 #############################
 
-# Usual, simple behaviour operations (flip windows state, move and resize windows, switch between nodes, etc) receive easier chords.
+# Usual, simple behaviour operations (flip windows state, move and resize windows, switch between nodes, etc) receive easier, ergonomic, chords.
 # Unusual, strange behaviour or potentially dangerous operations receive complicated chords.
 # Base operations on windows, desktops receive super + {[shift|alt|ctrl], ...} chords.
 # When possible, first letter of operation is used. Example: 'f' for floating.
@@ -217,30 +217,25 @@ alt + shift + {m,x,y,z}
   bspc node -g {marked, locked, sticky, private}
 
 #Move floating window
-alt + ctrl + {Left,Down,Up,Right}
-  bspc node -v {-20 0, 0 20, 0 -20, 20 0}
-
+#alt + ctrl + {Left,Down,Up,Right}
+#  bspc node -v {-20 0, 0 20, 0 -20, 20 0}
 # Move floating window
 super + alt + {_,shift + }{Left,Down,Up,Right}
-	~/.config/bspwm/scripts/move-window {_,edge-}{west,south,north,east}
+  ~/.config/bspwm/scripts/move-window {_,edge-}{west,south,north,east}
 
-#super + {t,shift  t,s,f}
-#Split horizontal, vertical or cancel
-super + shift + {h,j,k,l,c,Escape}
-  bspc node -p {west,south,north,east,cancel,cancel}
 
 #Resize floating window
 #Grow a window by moving one of its sides outward
-alt + {h,j,k,l}
-  bspc node -z {left -10 0, bottom 0 20, top 0 -20, right 20 0}
-alt + r
+super + {h,j,k,l}
   bspc node -z {left -10 0, bottom 0 20, top 0 -20, right 20 0}
 
 #Shrink floating window
-alt + shift + {h,j,k,l}
+super + shift + {h,j,k,l}
   bspc node -z {left +10 0, bottom 0 -20, top 0 20, right -20 0}
-alt + shift + r
-  bspc node -z {left +10 0, bottom 0 -20, top 0 20, right -20 0}
+
+#Split horizontal, vertical or cancel
+super + shift + {h,j,k,l,c,Escape}
+  bspc node -p {west,south,north,east,cancel,cancel}
 
 #Increase/decrease window gap on focused desktop
 super + bracket{left,right}
