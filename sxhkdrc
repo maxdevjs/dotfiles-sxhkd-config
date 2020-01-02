@@ -12,6 +12,9 @@ super + shift + r
 super + Escape
   pkill -USR1 -x sxhkd
 
+Print
+  $HOME/bin/system-menu-screenshots
+
 #Thinkpads
 #Quit bspwm
 super + XF86Launch1
