@@ -1,5 +1,52 @@
 !#/usr/bin/env sh
 
+#############################
+#                           #
+#      Usage paradigm       #
+#                           #
+#############################
+
+# Usual, simple behaviour operations receive easier chords.
+# Unusual, strange behaviour operations receive complicated chords.
+# Base operations on windows, desktops receive super + {[shift|alt|ctrl], ...} chords.
+# When possible, first letter of operation is used. Example: 'f' for floating.
+# 
+
+# Core Operations (complicated chords)
+#
+# ...
+# 
+# Windows Operations (easier chords)
+# 
+# States
+# super + {..., ..., ..., ...}
+# example: super + {f, ...} = {floating, ...}
+# Flip states: super + space {tiled, pseudo_tiled, floating, fullscreen}
+# 
+# Move
+#
+# Resize
+# 
+# Layouts Operations
+#
+# Flip
+#
+# Rotate
+#
+# Desktops Operations
+#
+# switch / send application to desktop
+#
+# Applications Operations
+# super + eXecute : {..., ..., ..., ...}
+# super + x : {f,h,k,l,n,b,v}
+
+#############################
+#                           #
+#      Core operations      #
+#                           #
+#############################
+
 #Restart bspwm
 #  . $HOME/.config/bspwm/bspwmrc
 super + shift + ctrl + r
@@ -11,6 +58,14 @@ super + shift + r
 
 super + Escape
   pkill -USR1 -x sxhkd
+
+#Toggles Compton
+#super + shift + c
+#  ~/bin/compton-toggle
+
+#Toggles Polybar visibility
+#super + p
+#  polybar-msg cmd toggle
 
 Print
   $HOME/bin/system-menu-screenshots
@@ -32,34 +87,23 @@ ctrl + alt + Delete
 
 #Launch common apps
 
-#Toggles Polybar visibility
-super + p
-  polybar-msg cmd toggle
-
-#Toggles Compton
-#super + shift + c
-#  ~/bin/compton-toggle
-
 #FIX
 #vkpurge
 #super + p
 #  kitty -e vkpurge
 
 #github.com/addy-dclxvi/void-bspwm-dotfiles
-super + {f,h,k,l,n,b,v}
-  {firefox,kitty -e htop,kitty,kitty -e lf,nautilus,kitty -e newsboat,kitty -e nvim}
+#super + x : {f,h,k,l,n,b,v}
+#  {firefox,kitty -e htop,kitty,kitty -e lf,nautilus,kitty -e newsboat,kitty -e nvim}
 
 #Edit configs
-#Rofi options
-super + c
-  ~/bin/system-edit-configs
 
-super + x : {b,p,s}
-  { \
-    `kitty -e nvim ~/.config/bspwm/bspwmrc`, \
-    `kitty -e nvim ~/.config/polybar/config`, \
-    `kitty -e nvim ~/.config/sxhkd/sxhkdrc`, \
-  }
+#super + x : {b,p,s}
+#  { \
+#    `kitty -e nvim ~/.config/bspwm/bspwmrc`, \
+#    `kitty -e nvim ~/.config/polybar/config`, \
+#    `kitty -e nvim ~/.config/sxhkd/sxhkdrc`, \
+#  }
 
 super + Return
   kitty
@@ -73,9 +117,13 @@ super + m
 
   #rofi -show run -matching fuzzy -lines 6 -click-to-exit -hide-scrollbar -font "Source Code Pro 20"
 super + d
-  rofi -show drun -p "λ run: " -fullscreen -sidebar-mode -matching fuzzy
+  rofi -show drun -p "λ run: " -sidebar-mode -matching fuzzy
 super + w
   rofi -show window -p "λ run: " -fullscreen -sidebar-mode -matching fuzzy
+#Rofi options
+super + c
+  ~/bin/system-edit-configs
+
 #super + s
 #      scrot
 
@@ -128,7 +176,7 @@ super + e
 super + {_,shift + }{1-9,0}
   bspc {desktop -f,node -d} '^{1-9,10}'
 
-{super} + Tab
+super + Tab
   bspc {desktop} -f last
 
 #Focus the next/previous node in the current desktop
@@ -153,20 +201,18 @@ alt + m
   #bspc node -{c,k}
 super + {_, shift + }q
   xdo close
-#super + {t,shift  t,s,f}
-alt + shift + {t,p,f,s}
+
+# Flip states
+super + {t,p,f,s}
+  bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
+
+#github.com/addy-dclxvi/void-bspwm-dotfiles
+super + space
   bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
 
 #Set node flags
 alt + shift + {m,x,y,z}
   bspc node -g {marked, locked, sticky, private}
-
-#github.com/addy-dclxvi/void-bspwm-dotfiles
-#super + space
-#  bspc node -t "~"{floating,tiled}
-
-super + space
-  bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
 
 #Move floating window
 alt + ctrl + {Left,Down,Up,Right}
