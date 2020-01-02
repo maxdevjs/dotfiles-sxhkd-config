@@ -34,8 +34,8 @@ super + p
   polybar-msg cmd toggle
 
 #Toggles Compton
-super + c
-  ~/bin/compton-toggle
+#super + shift + c
+#  ~/bin/compton-toggle
 
 #FIX
 #vkpurge
@@ -47,9 +47,9 @@ super + {f,h,k,l,n,b,v}
   {firefox,kitty -e htop,kitty,kitty -e lf,nautilus,kitty -e newsboat,kitty -e nvim}
 
 #Edit configs
-#bspwm
-super + ctrl + c
-  kitty -e nvim ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc_bspc
+#Rofi options
+super + c
+  ~/bin/system-edit-configs
 
 super + x : {b,p,s}
   { \
