@@ -146,9 +146,10 @@ alt + m
 #Nodes
 #Window state
 #Close and kill node
+#super + {_, shift + }q
+  #bspc node -{c,k}
 super + {_, shift + }q
-  bspc node -{c,k}
-
+  xdo close
 #super + {t,shift  t,s,f}
 alt + shift + {t,p,f,s}
   bspc node -t {tiled, pseudo_tiled, floating, fullscreen}
