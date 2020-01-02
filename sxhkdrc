@@ -6,8 +6,8 @@
 #                           #
 #############################
 
-# Usual, simple behaviour operations receive easier chords.
-# Unusual, strange behaviour operations receive complicated chords.
+# Usual, simple behaviour operations (flip windows state, move and resize windows, switch between nodes, etc) receive easier chords.
+# Unusual, strange behaviour or potentially dangerous operations receive complicated chords.
 # Base operations on windows, desktops receive super + {[shift|alt|ctrl], ...} chords.
 # When possible, first letter of operation is used. Example: 'f' for floating.
 # 
@@ -40,6 +40,8 @@
 # Applications Operations
 # super + eXecute : {..., ..., ..., ...}
 # super + x : {f,h,k,l,n,b,v}
+# NOTE: sequence must be interrupted with Escape!
+# TODO: search for workaround!
 
 #############################
 #                           #
@@ -93,8 +95,8 @@ ctrl + alt + Delete
 #  kitty -e vkpurge
 
 #github.com/addy-dclxvi/void-bspwm-dotfiles
-#super + x : {f,h,k,l,n,b,v}
-#  {firefox,kitty -e htop,kitty,kitty -e lf,nautilus,kitty -e newsboat,kitty -e nvim}
+super + x : {f,h,k,l,n,b,v}
+  {firefox,kitty -e htop,kitty,kitty -e lf,nautilus,kitty -e newsboat,kitty -e nvim}
 
 #Edit configs
 
