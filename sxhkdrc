@@ -234,7 +234,7 @@ super + shift + {h,j,k,l}
   bspc node -z {left +10 0, bottom 0 -20, top 0 20, right -20 0}
 
 #Split horizontal, vertical or cancel
-super + shift + {h,j,k,l,c,Escape}
+super + alt + {h,j,k,l,c,Escape}
   bspc node -p {west,south,north,east,cancel,cancel}
 
 #Increase/decrease window gap on focused desktop
