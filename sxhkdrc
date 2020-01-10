@@ -163,8 +163,8 @@ XF86AudioNext
 ctrl + alt + l
      slock
 
-super + e
-    emacsclient -nc
+#super + e
+#    emacsclient -nc
 
 
 
