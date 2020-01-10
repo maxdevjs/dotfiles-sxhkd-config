@@ -95,17 +95,17 @@ ctrl + alt + Delete
 #  kitty -e vkpurge
 
 #github.com/addy-dclxvi/void-bspwm-dotfiles
-super + x : {f,h,k,l,n,b,v}
+super + x ; {f,h,k,l,n,b,v}
   {firefox,kitty -e htop,kitty,kitty -e lf,nautilus,kitty -e newsboat,kitty -e nvim}
 
 #Edit configs
-
-#super + x : {b,p,s}
-#  { \
-#    `kitty -e nvim ~/.config/bspwm/bspwmrc`, \
-#    `kitty -e nvim ~/.config/polybar/config`, \
-#    `kitty -e nvim ~/.config/sxhkd/sxhkdrc`, \
-#  }
+super + e ; {b,p,s,t}
+  { \
+    kitty -e nvim ~/.config/bspwm/bspwmrc, \
+    kitty -e nvim ~/.config/polybar/config, \
+    kitty -e nvim ~/.config/sxhkd/sxhkdrc, \
+    kitty -e nvim ~/.config/tmux/tmux.conf, \
+  }
 
 super + Return
   kitty
