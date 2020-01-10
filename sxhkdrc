@@ -145,11 +145,8 @@ XF86AudioMute
 XF86AudioMicMute
   amixer set Capture 1+ toggle
 
-XF86MonBrightnessUp
-  xbacklight -inc 10
-
-XF86MonBrightnessDown
-  xbacklight -dec 10
+XF86MonBrightness{Down,Up}
+  xbacklight {-dec 10,-inc 10}
 
 XF86AudioPlay
     mpc toggle
