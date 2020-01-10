@@ -107,8 +107,8 @@ super + e ; {b,p,s,t}
     kitty -e nvim ~/.config/tmux/tmux.conf, \
   }
 
-super + Return
-  kitty
+super + {_, shift + } Return
+  {kitty, kitty -e tmux new-session -A -s 'Default'}
 
 super + m
   dmenu_run
