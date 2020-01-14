@@ -111,7 +111,7 @@ super + x ; {f,h,k,l,n,v,t}
     Rkitty -e lf, \
     nautilus, \
     kitty -e nvim, \
-    notify-send -t 5000 "`date +%H:%M`" "`date +%A` `date +%d` \n`date +%b` `date +%Y` (Week `date +%U`)"
+    $HOME/bin/system-notify-date-time
   }
 
 # Edit configs
