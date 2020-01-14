@@ -55,8 +55,8 @@ super + shift + ctrl + r
   bspc wm -r
 
 #Reload config
-super + shift + r
-  pkill -USR1 -x sxhkd
+#super + shift + r
+#  pkill -USR1 -x sxhkd
 
 super + Escape
   pkill -USR1 -x sxhkd
@@ -64,12 +64,19 @@ super + Escape
 #Reload configs
 super + r ; {b,s,x,y}
   { \
-    bspc wm -r, \
-    pkill -USR1 -x sxhkd, \
-    $HOME/bin/system-merge-xresources, \
+    bspc wm -r && notify-send "bspwm" "Reloaded config", \
+    pkill -USR1 -x sxhkd && notify-send "sxhkd" "Reloaded config", \
+    $HOME/bin/system-merge-xresources && notify-send "xResources" "Reloaded config", \
     notify-send -i gnome-screenshot "title" "message", \
   }
 
+#Toggle apps status
+#super + t ; {c,p}
+#  { \
+#    $HOME/bin/compton-toggle, \
+    #polybar-msg cmd toggle, \
+#    notify-send -i gnome-screenshot "title" "message", \
+#  }
 #Toggles Compton
 #super + shift + c
 #  ~/bin/compton-toggle
