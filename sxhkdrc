@@ -98,23 +98,23 @@ super + alt + XF86Launch1
 super + shift + XF86Launch1
   ~/bin/prompt "Shutdown computer?" "sudo -A shutdown -h now"
 
-#Whatever Fallback
-#Supend/restart/shutdown/ the computer
+# Supend/restart/shutdown/ the computer
 ctrl + alt + Delete
-  ~/bin/system-power-ops
+  $HOME/bin/system-power-ops
 
-#Launch common apps
+# eXecute apps
+super + x ; {f,h,k,l,n,v,t}
+  { \
+    firefox, \
+    kitty -e htop, \
+    kitty, \
+    Rkitty -e lf, \
+    nautilus, \
+    kitty -e nvim, \
+    notify-send -t 5000 "`date +%H:%M`" "`date +%A` `date +%d` \n`date +%b` `date +%Y` (Week `date +%U`)"
+  }
 
-#FIX
-#vkpurge
-#super + p
-#  kitty -e vkpurge
-
-#github.com/addy-dclxvi/void-bspwm-dotfiles
-super + x ; {f,h,k,l,n,b,v}
-  {firefox,kitty -e htop,kitty,kitty -e lf,nautilus,kitty -e newsboat,kitty -e nvim}
-
-#Edit configs
+# Edit configs
 super + e ; {b,p,s,t}
   { \
     kitty -e nvim ~/.config/bspwm/bspwmrc, \
