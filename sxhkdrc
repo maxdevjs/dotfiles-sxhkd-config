@@ -61,6 +61,15 @@ super + shift + r
 super + Escape
   pkill -USR1 -x sxhkd
 
+#Reload configs
+super + r ; {b,s,x,y}
+  { \
+    bspc wm -r, \
+    pkill -USR1 -x sxhkd, \
+    $HOME/bin/system-merge-xresources, \
+    notify-send -i gnome-screenshot "title" "message", \
+  }
+
 #Toggles Compton
 #super + shift + c
 #  ~/bin/compton-toggle
