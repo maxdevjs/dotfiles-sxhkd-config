@@ -103,15 +103,18 @@ ctrl + alt + Delete
   $HOME/bin/system-power-ops
 
 # eXecute apps
-super + x ; {f,h,k,l,n,v,t}
+super + x ; {c,f,h,k,l,n,v,s,t,w}
   { \
+    find-cursor, \
     firefox, \
     kitty -e htop, \
     kitty, \
-    Rkitty -e lf, \
+    kitty -e lf, \
     nautilus, \
     kitty -e nvim, \
-    $HOME/bin/system-notify-date-time
+    surf google.com, \
+    $HOME/bin/system-notify-date-time, \
+    $HOME/bin/rofi-web, \
   }
 
 # Edit configs
@@ -140,7 +143,7 @@ super + w
   rofi -show window -p "λ run: " -fullscreen -sidebar-mode -matching fuzzy
 #Rofi options
 super + c
-  ~/bin/system-edit-configs
+  ~/bin/system-edit-configs-menu
 
 #super + s
 #      scrot
