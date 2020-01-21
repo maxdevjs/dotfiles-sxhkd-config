@@ -85,6 +85,9 @@ super + r ; {b,s,x,y}
 #super + p
 #  polybar-msg cmd toggle
 
+super + t
+  $HOME/bin/system-thinklight-blink
+
 Print
   $HOME/bin/system-screenshots-menu
 
