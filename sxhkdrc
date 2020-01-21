@@ -86,7 +86,7 @@ super + r ; {b,s,x,y}
 #  polybar-msg cmd toggle
 
 Print
-  $HOME/bin/system-menu-screenshots
+  $HOME/bin/system-screenshots-menu
 
 #Thinkpads
 #Quit bspwm
