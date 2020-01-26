@@ -85,13 +85,9 @@ super + r ; {b,s,x,y}
 #super + p
 #  polybar-msg cmd toggle
 
-super + t
-  $HOME/bin/system-thinklight-blink
-
 Print
   $HOME/bin/system-screenshots-menu
 
-#Thinkpads
 #Quit bspwm
 super + XF86Launch1
   ~/bin/prompt "Are you sure you want to quit this Xsession?" "bspc quit"
@@ -106,9 +102,10 @@ ctrl + alt + Delete
   $HOME/bin/system-power-ops
 
 # eXecute apps
-super + x ; {c,f,h,k,l,n,v,s,t,w}
+super + x ; {c,d,f,h,k,l,n,v,s,t,w}
   { \
     find-cursor, \
+    $HOME/bin/system-notify-date-time, \
     firefox, \
     kitty -e htop, \
     kitty, \
@@ -116,7 +113,7 @@ super + x ; {c,f,h,k,l,n,v,s,t,w}
     nautilus, \
     kitty -e nvim, \
     surf google.com, \
-    $HOME/bin/system-notify-date-time, \
+    $HOME/bin/system-thinklight-blink, \
     $HOME/bin/rofi-web, \
   }
 
