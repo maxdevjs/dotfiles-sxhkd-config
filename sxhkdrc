@@ -211,7 +211,7 @@ super + Tab
   #bspc node -{c,k}
 
 # Close and kill nod
-super + {_, shift + }q
+super + shift + q
   xdo close
 
 # Switch states
