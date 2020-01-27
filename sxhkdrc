@@ -144,6 +144,8 @@ super + w
 #Rofi options
 super + c
   ~/bin/system-edit-configs-menu
+super + shift + d
+  skippy-xd
 
 #super + s
 #      scrot
