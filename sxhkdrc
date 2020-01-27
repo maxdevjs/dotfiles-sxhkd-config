@@ -113,7 +113,7 @@ super + x ; {c,d,f,h,k,l,n,v,s,t,w}
     nautilus, \
     kitty -e nvim, \
     surf google.com, \
-    $HOME/bin/system-thinklight-blink, \
+    $HOME/bin/system-thinklight-toggle, \
     $HOME/bin/rofi-web, \
   }
 
