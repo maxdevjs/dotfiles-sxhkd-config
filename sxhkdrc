@@ -239,11 +239,11 @@ super + alt + n
 alt + m
   bspc desktop -l next
 
-#Set node flags
+# Set node flags
 alt + shift + {m,x,y,z}
   bspc node -g {marked, locked, sticky, private}
 
-#Move floating window
+# Move floating window
 #alt + ctrl + {Left,Down,Up,Right}
 #  bspc node -v {-20 0, 0 20, 0 -20, 20 0}
 # Move floating window
@@ -259,9 +259,13 @@ super + {h,j,k,l}
 super + shift + {h,j,k,l}
   bspc node -z {left +10 0, bottom 0 -20, top 0 20, right -20 0}
 
-#Split horizontal, vertical or cancel
-super + alt + {h,j,k,l,c,Escape}
-  bspc node -p {west,south,north,east,cancel,cancel}
+# Split horizontal, vertical or cancel
+super + alt + {h,j,k,l}
+  bspc node -p '~{west,south,north,east}'
+  
+# Split cancel
+super + alt + {c,Escape}
+  bspc node -p {cancel,cancel}
 
 #Increase/decrease window gap on focused desktop
 super + bracket{left,right}
